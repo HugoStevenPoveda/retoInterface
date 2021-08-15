@@ -1,6 +1,5 @@
 package reto3;
 
-
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -60,7 +59,6 @@ class Reto3 {
 		baseDatosProductos.agregar(Chocolates);
 		baseDatosProductos.agregar(Jamon);
 
-
 		// fin de base datos
 
 		String operacion = read();
@@ -106,8 +104,6 @@ class Reto3 {
 			break;
 		}
 
-		
-         
 	}
 }
 
@@ -183,10 +179,9 @@ class BaseDatosProductos {
 
 	}
 
-	
 	public Integer[] mayorMenor() {
 		crearListaPrecio();
-        // objeto me permite tener un aaray a agregarle un valor a mayor y menor
+		// objeto me permite tener un aaray a agregarle un valor a mayor y menor
 		Object[] preciosLista = listaPrecios.values().toArray();
 
 		// almacena la llave producto mayor y la llave producto menor
@@ -228,7 +223,7 @@ class BaseDatosProductos {
 	}
 
 	public Double PromedioPrecio() {
-		
+
 		Double suma = (double) 0;
 		Double promedio = (double) 0;
 		int cantidaProductos = listaProductos.size();
@@ -270,61 +265,48 @@ class BaseDatosProductos {
 	public void imprimirTotalInventario() {
 		System.out.print(totalInventario());
 	}
-	
-   public Integer[] ordenarPrecios() {
-	   crearListaPrecio();
-	   Integer[] keysProductosMayores = new Integer[3];
-	   Integer keyProductoUno = 0;
-	   Integer keyProductoDos = 0;
-	   Integer keyProductoTres = 0;
-	   Object[] preciosLista = listaPrecios.values().toArray();
-	   Arrays.sort(preciosLista);
-	   Double precioProductoUno = (Double) preciosLista[preciosLista.length-1];
-	   Double precioProductoDos = (Double) preciosLista[preciosLista.length-2];
-	   Double precioProductoTres = (Double) preciosLista[preciosLista.length-3];
-	   for (Integer key:listaPrecios.keySet()) {
-		   if(listaPrecios.get(key)==precioProductoUno) keyProductoUno = key;
-		   if(listaPrecios.get(key)==precioProductoDos) keyProductoDos = key;
-		   if(listaPrecios.get(key)==precioProductoTres) keyProductoTres = key;
-	   }
-	   keysProductosMayores[0]=keyProductoUno;
-	   keysProductosMayores[1]=keyProductoDos;
-	   keysProductosMayores[2]=keyProductoTres;
-	   
-	   return keysProductosMayores;
-	   
-		   
-   }
-   
-   public void inprimirOrdenarPrecios() {
-	   Integer[] listaPreciosMayores = ordenarPrecios();
-	   Integer precioUno = listaPreciosMayores[0];
-	   Integer precioDos = listaPreciosMayores[1];
-	   Integer precioTres = listaPreciosMayores[2];
-	   
-	   System.out.print(listaProductos.get(precioUno));
-	   System.out.print(" ");
-	   System.out.print(listaProductos.get(precioDos));
-	   System.out.print(" ");
-	   
-	   System.out.print(listaProductos.get(precioTres));
-	  
-	   
-   }
-		   
-	   
-	   
-	   
-	   
-	   
-	   
-	
-	
-	
-	
-	
-	
-	
+
+	public Integer[] ordenarPrecios() {
+		crearListaPrecio();
+		Integer[] keysProductosMayores = new Integer[3];
+		Integer keyProductoUno = 0;
+		Integer keyProductoDos = 0;
+		Integer keyProductoTres = 0;
+		Object[] preciosLista = listaPrecios.values().toArray();
+		Arrays.sort(preciosLista);
+		Double precioProductoUno = (Double) preciosLista[preciosLista.length - 1];
+		Double precioProductoDos = (Double) preciosLista[preciosLista.length - 2];
+		Double precioProductoTres = (Double) preciosLista[preciosLista.length - 3];
+		for (Integer key : listaPrecios.keySet()) {
+			if (listaPrecios.get(key) == precioProductoUno)
+				keyProductoUno = key;
+			if (listaPrecios.get(key) == precioProductoDos)
+				keyProductoDos = key;
+			if (listaPrecios.get(key) == precioProductoTres)
+				keyProductoTres = key;
+		}
+		keysProductosMayores[0] = keyProductoUno;
+		keysProductosMayores[1] = keyProductoDos;
+		keysProductosMayores[2] = keyProductoTres;
+
+		return keysProductosMayores;
+
+	}
+
+	public void inprimirOrdenarPrecios() {
+		Integer[] listaPreciosMayores = ordenarPrecios();
+		Integer precioUno = listaPreciosMayores[0];
+		Integer precioDos = listaPreciosMayores[1];
+		Integer precioTres = listaPreciosMayores[2];
+
+		System.out.print(listaProductos.get(precioUno));
+		System.out.print(" ");
+		System.out.print(listaProductos.get(precioDos));
+		System.out.print(" ");
+
+		System.out.print(listaProductos.get(precioTres));
+
+	}
 
 	public void generarInforme() {
 		imprimeMayorMenor();
